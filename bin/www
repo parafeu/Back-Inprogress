@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('back-inprogress:server');
+var debug = require('debug')('svged-serveur:server');
 var http = require('http');
 
 /**

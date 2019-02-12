@@ -1,0 +1,35 @@
+{
+	"200": {
+		"code": 200,
+		"message": "Requête traitée avec succès.",
+		"content": {}
+	},
+	"204": {
+		"code": 204,
+		"message": "Requête traitée avec succès mais pas d'informations à renvoyer."
+	},
+	"400": {
+		"code": 400,
+		"message": "La ressource existe mais la syntaxe de la requête est erronée."
+	},
+	"401": {
+		"code": 401,
+		"message": "Une authentification est nécessaire pour accéder à la ressource."
+	},
+	"404": {
+		"code": 404,
+		"message": "La ressource n'existe pas."
+	},
+	"405": {
+		"code": 405,
+		"message": "Cette méthode de requête n'est pas autorisée sur cette ressource."
+	},
+	"421": {
+		"code": 421,
+		"message": "La requête a été envoyée à un serveur qui n'est pas capable de produire une réponse (par exemple, car une connexion a été réutilisée)."
+	},
+	"429": {
+		"code": 429,
+		"message": "Le client a émis trop de requêtes dans un délai donné."
+	}
+}
