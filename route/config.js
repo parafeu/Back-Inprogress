@@ -17,14 +17,19 @@ router.get('/', function(req, res, next) {
 })
 /* PUT config. */
 .put('/', function(req, res, next) {
-	console.log(req.body)
-
 	if(db.has('config').value()) {
 		let config = db.get('config').value();
 
-		for(conf in config) {
-			console.log(conf);
+		for(conf in req.body) {
+			if(conf in config) {
+				config[conf] = req.body[conf];
+			}
 		}
+
+		db.get('config')
+			.assign(config)
+			.write();
+
 	}
 
 	sendResponse(res, 200);
