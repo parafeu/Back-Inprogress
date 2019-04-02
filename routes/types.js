@@ -1,7 +1,7 @@
-var express = require('express');
-var db = require('../db');
-var sendResponse = require('../statusCode');
-var router = express.Router();
+const express = require('express');
+const db = require('../db');
+const sendResponse = require('../statusCode');
+const router = express.Router();
 
 /* GET types listing. */
 router.get('/', function(req, res, next) {

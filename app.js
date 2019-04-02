@@ -1,22 +1,22 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var fs = require('fs');
-var helmet = require('helmet');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const fs = require('fs');
+const helmet = require('helmet');
 
-var sendResponse = require('./statusCode');
-var security = require('./security');
+const sendResponse = require('./statusCode');
+const security = require('./security');
 
 // parse JSON routes file, close server if it isn't a good json
 try {
-	var routes = JSON.parse(fs.readFileSync('./cfg/routes.json'));
+	const routes = JSON.parse(fs.readFileSync('./cfg/routes.json'));
 } catch(e) {
 	console.error('Parsing error:', e);
 	process.exit(1);
 }
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(helmet());
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(security());
 
 // initialize url -> router
-for(var router in routes) {
+for(let router in routes) {
 	app.use(router, require(routes[router]));
 }
 
