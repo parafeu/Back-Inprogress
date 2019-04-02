@@ -1,3 +1,4 @@
 {
-	"/types": "./routes/types"
+	"/config": "./route/config",
+	"/types": "./route/types"
 }

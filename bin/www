@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('svged-serveur:server');
+var debug = require('debug')('francepapilles:server');
 var http = require('http');
 
 /**
