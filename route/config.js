@@ -15,9 +15,19 @@ router.get('/', function(req, res, next) {
 
 	sendResponse(res, code, result);
 })
-/* GET type with id. */
-.get('/:id(\\d+)', function(req, res, next) {
-	sendResponse(res, 200, { id: req.params.id, text: "content request here" });
+/* PUT config. */
+.put('/', function(req, res, next) {
+	console.log(req.body)
+
+	if(db.has('config').value()) {
+		let config = db.get('config').value();
+
+		for(conf in config) {
+			console.log(conf);
+		}
+	}
+
+	sendResponse(res, 200);
 })
 /* METHOD not allowed. */
 .use(function(req, res, next) {
