@@ -2,7 +2,7 @@ var fs = require('fs');
 
 // parse JSON routes file, close server if isn't good json
 try {
-	var code = JSON.parse(fs.readFileSync('./statusCode.json'));
+	var code = JSON.parse(fs.readFileSync('./cfg/statusCode.json'));
 } catch(e) {
 	console.error('Parsing error:', e);
 	process.exit(1);

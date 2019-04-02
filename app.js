@@ -10,7 +10,7 @@ var security = require('./security');
 
 // parse JSON routes file, close server if it isn't a good json
 try {
-	var routes = JSON.parse(fs.readFileSync('./routes/routes.json'));
+	var routes = JSON.parse(fs.readFileSync('./cfg/routes.json'));
 } catch(e) {
 	console.error('Parsing error:', e);
 	process.exit(1);
