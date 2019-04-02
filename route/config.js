@@ -8,28 +8,23 @@ router.get('/', function(req, res, next) {
 	let code = '404';
 	let result = {};
 
-	if(db.has('config').value()) {
+	if(db.base.has('config').value()) {
 		code = 200;
-		result = db.get('config').value();
+		result = db.base.get('config').value();
 	}
 
 	sendResponse(res, code, result);
 })
 /* PUT config. */
 .put('/', function(req, res, next) {
-	if(db.has('config').value()) {
-		let config = db.get('config').value();
+	if(db.base.has('config').value()) {
+		let config = db.base.get('config').value();
 
-		for(conf in req.body) {
-			if(conf in config) {
-				config[conf] = req.body[conf];
-			}
-		}
+		config = db.secureJSONAssignment(req.body, config);
 
-		db.get('config')
+		db.base.get('config')
 			.assign(config)
 			.write();
-
 	}
 
 	sendResponse(res, 200);

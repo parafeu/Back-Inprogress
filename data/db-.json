@@ -1,0 +1,27 @@
+{
+  "config": {
+    "couleur": "0xFFFFFF",
+    "contenu": {
+      "accroche": "hey",
+      "lerestaurant": "oh"
+    },
+    "url": "http://",
+    "ouverture": {
+      "horaire": [
+        {
+          "debut": "14h00",
+          "fin": "15h00"
+        }
+      ],
+      "jour": [
+        "lundi",
+        "mardi"
+      ]
+    }
+  },
+  "plats": [],
+  "menus": [],
+  "badges": [],
+  "producteurs": [],
+  "galerie": []
+}

@@ -16,12 +16,33 @@ const adapter = new FileSync('./data/db.json');
 const db = low(adapter);
 
 try {
-	var defaultdb = JSON.parse(fs.readFileSync('./data/defaultdb.json'));
+	var dbModel = JSON.parse(fs.readFileSync('./data/model/db.json'));
+	var configModel = JSON.parse(fs.readFileSync('./data/model/config.json'));
 } catch(e) {
 	console.error('Parsing error:', e);
 	process.exit(1);
 }
 
-db.defaults(defaultdb).write();
+dbModel.config = configModel;
 
-module.exports = db;
+db.defaults(dbModel).write();
+
+/*
+ * Update output JSON with input JSON only on keys exist in output
+ * It doesn't create new keys in output JSON
+ */
+function secureJSONAssignment(input, output) {
+	for(index in input) {
+		if(index in output) {
+			if(typeof output[index] === 'object') {
+				output[index] = secureJSONAssignment(input[index], output[index]);
+			} else {
+				output[index] = input[index];
+			}
+		}
+	}
+
+	return output;
+}
+
+module.exports = { base: db, secureJSONAssignment };

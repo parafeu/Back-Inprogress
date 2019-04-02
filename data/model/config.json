@@ -1,0 +1,12 @@
+{
+	"couleur": "0xFFFFFF",
+	"contenu": {
+		"accroche": "",
+		"lerestaurant": ""
+	},
+	"url": "http://",
+	"ouverture": {
+		"horaire": [],
+		"jour": []
+	}
+}
