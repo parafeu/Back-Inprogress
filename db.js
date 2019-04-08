@@ -1,19 +1,10 @@
-/*const sqlite3 = require('sqlite3').verbose();
-
-const db = new sqlite3.Database('./data/francepapilles.db3', sqlite3.OPEN_READWRITE, function(err) {
-	if(err !== null)
-	{
-		console.error(err);
-		process.exit(1);
-	}
-});*/
-
 const fs = require('fs');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
 const adapter = new FileSync('./data/db.json');
 const db = low(adapter);
+const shortid = require('shortid');
 
 try {
 	var dbModel = JSON.parse(fs.readFileSync('./data/model/db.json'));
@@ -45,4 +36,32 @@ function secureJSONAssignment(input, output) {
 	return output;
 }
 
-module.exports = { base: db, secureJSONAssignment };
+/*
+ * Returns JSON model
+ * Return false if model doesn't exist
+ */
+function getModel(name) {
+	try {
+		var model = JSON.parse(fs.readFileSync('./data/model/'+ name +'.json'));
+	} catch(e) {
+		var model = false;
+	}
+
+	return model;
+}
+
+/*
+ * Returns an random id
+ */
+function generateId() {
+	return shortid.generate();
+}
+
+/*
+ * Check is Id is valid
+ */
+function isValidId(id) {
+	return shortid.isValid(id);
+}
+
+module.exports = { base: db, secureJSONAssignment, getModel, generateId, isValidId };

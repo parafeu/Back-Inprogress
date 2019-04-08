@@ -15,5 +15,51 @@
   "menus": [],
   "badges": [],
   "producteurs": [],
-  "galerie": []
+  "images": [
+    {
+      "id": 0,
+      "type": "",
+      "description": ""
+    },
+    {
+      "id": 0,
+      "type": "",
+      "description": ""
+    },
+    {
+      "id": "pGAfs78Wa",
+      "type": "coucou",
+      "description": "coucou"
+    },
+    {
+      "id": "-_J8ZMwKq",
+      "type": "",
+      "description": ""
+    },
+    {
+      "id": "-_J8ZMwKq",
+      "type": "",
+      "description": ""
+    },
+    {
+      "id": "vVlC5wLoT",
+      "type": "test",
+      "description": ""
+    },
+    {
+      "id": "vVlC5wLoT",
+      "type": "test",
+      "description": ""
+    },
+    {
+      "id": "op1Uruh8g",
+      "type": "teste",
+      "description": ""
+    },
+    {
+      "id": "id-9vUqTi",
+      "type": "teste",
+      "description": ""
+    }
+  ]
 }

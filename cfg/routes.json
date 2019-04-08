@@ -1,3 +1,4 @@
 {
-	"/config": "./route/config"
+	"/config": "./route/config",
+	"/image": "./route/image"
 }
