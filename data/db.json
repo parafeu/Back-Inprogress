@@ -1,6 +1,7 @@
 {
   "config": {
-    "couleur": "0x000000",
+    "couleur": "green",
+    "nom": "annecy",
     "contenu": {
       "accroche": "Oh",
       "lerestaurant": "hey"
