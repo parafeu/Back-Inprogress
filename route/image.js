@@ -51,7 +51,7 @@ router.get('/', function(req, res, next) {
 
 	sendResponse(res, 200);
 })
-/* PUT image. */
+/* PUT image with id. */
 .put('/:id', function(req, res, next) {
 	if(db.base.has('images').value()) {
 		let id = req.params.id;
@@ -67,6 +67,17 @@ router.get('/', function(req, res, next) {
 				.assign(image)
 				.write();
 		}
+	}
+
+	sendResponse(res, 200);
+})
+/* DELETE image with id. */
+.delete('/:id', function(req, res, next) {
+	if(db.base.has('images').value()) {
+		let id = req.params.id;
+		let image = db.base.get('images')
+			.remove({ id: id })
+			.write();
 	}
 
 	sendResponse(res, 200);
