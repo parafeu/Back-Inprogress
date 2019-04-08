@@ -2,7 +2,8 @@
   "config": {
     "couleur": "0x000000",
     "contenu": {
-      "accroche": "Ohh"
+      "accroche": "Oh",
+      "lerestaurant": "hey"
     },
     "url": "http://",
     "ouverture": {
