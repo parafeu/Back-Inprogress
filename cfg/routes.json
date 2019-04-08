@@ -2,5 +2,7 @@
 	"/config": "./route/config",
 	"/image": "./route/image",
 	"/badge": "./route/badge",
-	"/producteur": "./route/producteur"
+	"/producteur": "./route/producteur",
+	"/plat": "./route/plat",
+	"/menu": "./route/menu"
 }

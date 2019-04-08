@@ -41,8 +41,6 @@ router.get('/', function(req, res, next) {
 			let badge = db.secureJSONAssignment(req.body, badgeModel);
 			badge.id = db.generateId();
 
-			//badges.push(badge);
-
 			db.base.get('badges')
 				.push(badge)
 				.write();

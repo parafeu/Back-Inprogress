@@ -3,27 +3,27 @@ const db = require('../db');
 const sendResponse = require('../statusCode');
 const router = express.Router();
 
-/* GET producteur listing. */
+/* GET plat listing. */
 router.get('/', function(req, res, next) {
 	let code = '404';
 	let result = {};
 
-	if(db.base.has('producteurs').value()) {
+	if(db.base.has('plats').value()) {
 		code = 200;
-		result = db.base.get('producteurs').value();
+		result = db.base.get('plats').value();
 	}
 
 	sendResponse(res, code, result);
 })
-/* GET producteur with id. */
+/* GET plat with id. */
 .get('/:id', function(req, res, next) {
 	let result = {};
 
-	if(db.base.has('producteurs').value()) {
+	if(db.base.has('plats').value()) {
 		let id = req.params.id;
 
 		if(db.isValidId(id)) {
-			result = db.base.get('producteurs')
+			result = db.base.get('plats')
 				.find({ id: id })
 				.value();
 		}
@@ -31,49 +31,49 @@ router.get('/', function(req, res, next) {
 
 	sendResponse(res, 200, result);
 })
-/* POST producteur. */
+/* POST plat. */
 .post('/', function(req, res, next) {
-	if(db.base.has('producteurs').value()) {
-		let producteurs = db.base.get('producteurs').value();
-		let producteurModel = db.getModel('producteur');
+	if(db.base.has('plats').value()) {
+		let plats = db.base.get('plats').value();
+		let platModel = db.getModel('plat');
 
-		if(producteurModel) {
-			let producteur = db.secureJSONAssignment(req.body, producteurModel);
-			producteur.id = db.generateId();
+		if(platModel) {
+			let plat = db.secureJSONAssignment(req.body, platModel);
+			plat.id = db.generateId();
 
-			db.base.get('producteurs')
-				.push(producteur)
+			db.base.get('plats')
+				.push(plat)
 				.write();
 		}
 	}
 
 	sendResponse(res, 200);
 })
-/* PUT producteur with id. */
+/* PUT plat with id. */
 .put('/:id', function(req, res, next) {
-	if(db.base.has('producteurs').value()) {
+	if(db.base.has('plats').value()) {
 		let id = req.params.id;
-		let producteur = db.base.get('producteurs')
+		let plat = db.base.get('plats')
 			.find({ id: id })
 			.value();
 
-		if(producteur.id != undefined) {
-			producteur = db.secureJSONAssignment(req.body, producteur);
+		if(plat.id != undefined) {
+			plat = db.secureJSONAssignment(req.body, plat);
 
-			db.base.get('producteurs')
+			db.base.get('plats')
 				.find({ id: id })
-				.assign(producteur)
+				.assign(plat)
 				.write();
 		}
 	}
 
 	sendResponse(res, 200);
 })
-/* DELETE producteur with id. */
+/* DELETE plat with id. */
 .delete('/:id', function(req, res, next) {
-	if(db.base.has('producteurs').value()) {
+	if(db.base.has('plats').value()) {
 		let id = req.params.id;
-		let producteur = db.base.get('producteurs')
+		let plat = db.base.get('plats')
 			.remove({ id: id })
 			.write();
 	}

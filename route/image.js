@@ -41,8 +41,6 @@ router.get('/', function(req, res, next) {
 			let image = db.secureJSONAssignment(req.body, imgModel);
 			image.id = db.generateId();
 
-			//images.push(image);
-
 			db.base.get('images')
 				.push(image)
 				.write();
