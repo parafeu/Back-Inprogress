@@ -1,4 +1,6 @@
 {
 	"/config": "./route/config",
-	"/image": "./route/image"
+	"/image": "./route/image",
+	"/badge": "./route/badge",
+	"/producteur": "./route/producteur"
 }

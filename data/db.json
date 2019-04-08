@@ -13,8 +13,21 @@
   },
   "plats": [],
   "menus": [],
-  "badges": [],
-  "producteurs": [],
+  "badges": [
+    {
+      "id": "LRusMw71U",
+      "nom": "",
+      "description": "coucou"
+    }
+  ],
+  "producteurs": [
+    {
+      "id": "gkE5o1Dz3",
+      "nom": "",
+      "description": "coucou",
+      "url": ""
+    }
+  ],
   "images": [
     {
       "id": 0,
