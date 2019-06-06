@@ -8,6 +8,7 @@
 	"url": "",
 	"ouverture": {
 		"horaire": [],
-		"jour": []
+		"jour": [],
+		"nbHoraires": 1
 	}
 }
