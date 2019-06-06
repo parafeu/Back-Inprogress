@@ -25,7 +25,7 @@ db.defaults(dbModel).write();
 function secureJSONAssignment(input, output) {
 	for(index in input) {
 		if(index in output) {
-			if(typeof output[index] === 'object') {
+			if(typeof output[index] === 'object' && !Array.isArray(output[index])) {
 				output[index] = secureJSONAssignment(input[index], output[index]);
 			} else {
 				output[index] = input[index];
